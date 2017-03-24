@@ -1,6 +1,8 @@
-<h1>Editing Zoo</h1>
+<div class="container">
+	<h1>Editing Zoo</h1>
 
-<%= render 'form', zoo: @zoo %>
+	<%= render 'form', zoo: @zoo, button_action: 'Update' %>
 
-<%= link_to 'Show', @zoo %> |
-<%= link_to 'Back', zoos_path %>
+	<%= link_to 'Show', @zoo %> |
+	<%= link_to 'Back', zoos_path %>
+</div>

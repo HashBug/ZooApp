@@ -1,6 +1,8 @@
-<h1>Editing Animal</h1>
+<div class="container">	
+	<h1>Editing Animal</h1>
 
-<%= render 'form', animal: @animal %>
+	<%= render 'form', animal: @animal, label_add: "Transfer to: ", button_name: "Update Animal" %>
 
-<%= link_to 'Show', @animal %> |
-<%= link_to 'Back', animals_path %>
+	<%= link_to 'Show', @animal %> |
+	<%= link_to 'Back', animals_path %>
+</div>

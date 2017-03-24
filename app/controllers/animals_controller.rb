@@ -8,7 +8,6 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1
   def show
-    @image = Apis::Pixabay.get_image @animal.name
   end
 
   # GET /animals/new
@@ -25,7 +24,7 @@ class AnimalsController < ApplicationController
   # POST /animals
   def create
     @animal = Animal.new(animal_params)
-
+    @animal[:image] = Apis::Pixabay.get_image @animal[:name]
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }

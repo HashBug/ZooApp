@@ -1,6 +1,6 @@
 class Zoo < ApplicationRecord
 	#associations
-	has_many :animals
+	has_many :animals, dependent: :destroy
 
 	#validations
 	validates :name, presence: true

@@ -1,23 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @zoo.name %>
-</p>
+<div class="container">
+	<h2>Zoo</h2>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @zoo.name %>
+	</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @zoo.city %>
-</p>
+	<p>
+	  <strong>City:</strong>
+	  <%= @zoo.city %>
+	</p>
 
-<p>
-	<strong>Animals:</strong>
-	<% @zoo.animals.each do |animal| %>
-		<%= link_to animal.name, animal %><br/>
-	<% end %>
-</p>
+	<p>
+		<strong>Animals:</strong>
+		<ul>
+			<% @zoo.animals.each do |animal| %>
+				<li><%= link_to animal.name, animal %></li>
+			<% end %>
+		</ul>
+	</p>
 
-<%= link_to 'Show All animals', animals_url %>
+	<%= link_to 'Show All animals', animals_url, class: "btn btn-default" %>
 
-<%= link_to 'Edit', edit_zoo_path(@zoo) %> |
-<%= link_to 'Back', zoos_path %>
+	<%= link_to 'Edit', edit_zoo_path(@zoo), class: "btn btn-default" %>
+	<%= link_to 'Back', zoos_path, class: "btn btn-default" %>
+</div>

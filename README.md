@@ -20,4 +20,4 @@ Things you should have:
 
 *  
 
-* NOTE: Refactoring pending
+* NOTE: Some Refactoring pending
