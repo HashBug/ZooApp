@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zoos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Zipcode</th>
+      <th>Publish</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr> <strong> Published Zoos </strong> </tr>
+    <% @zoos.each do |zoo| %>
+      <tr>
+        <% if zoo.publish %>
+          <td><%= link_to zoo.name, zoo %></td>
+          <td><%= zoo.city %></td>
+          <td><%= zoo.zipcode %></td>
+          <!-- <td><%= zoo.publish %></td> -->
+          <!-- <td><%= link_to 'Show', zoo %></td> -->
+          <td><%= link_to 'Edit', edit_zoo_path(zoo) %></td>
+          <td><%= link_to 'Delete', zoo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>  <strong> UnPublished Zoos </strong></tr>
+    <% @zoos.each do |zoo| %>
+      <tr>
+        <% if !zoo.publish %>
+          <td><%= link_to zoo.name, zoo %></td>
+          <td><%= link_to 'Edit', edit_zoo_path(zoo) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Zoo', new_zoo_path %>
