@@ -23,7 +23,6 @@ class ZoosController < ApplicationController
     respond_to do |format|
       if @zoo.save
         format.html { redirect_to @zoo, notice: 'Zoo was successfully created.' }
-        # format.json { render :show, status: :created, location: @zoo }
       else
         format.html { render :new }
       end

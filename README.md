@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README mentions how to get this app working.
 
-Things you may want to cover:
+Things you should have:
 
-* Ruby version
+* Ruby version > 2.x.x
 
-* System dependencies
+* Rails 5.x.x
 
-* Configuration
+* Mysql Installed
 
-* Database creation
+* Pull it to your machine
 
-* Database initialization
+* run bundle install
 
-* How to run the test suite
+* rails:db migrate to run migrations 
 
-* Services (job queues, cache servers, search engines, etc.)
+* Run the server (rails s)
 
-* Deployment instructions
+*  
 
-* ...
+* NOTE: Refactoring pending

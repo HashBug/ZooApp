@@ -8,12 +8,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1
   def show
-      uri = URI('https://pixabay.com/api/')
-      params = { :key => '4910604-0fbd8071304388b7c0776f797',:q => @animal.name }
-      uri.query = URI.encode_www_form(params)
-      response = Net::HTTP.get_response(uri)
-      result = JSON.parse(response.body) if response.is_a?(Net::HTTPSuccess)
-      @image = result['hits'][0]['previewURL']
+    @image = Apis::Pixabay.get_image @animal.name
   end
 
   # GET /animals/new
@@ -34,10 +29,8 @@ class AnimalsController < ApplicationController
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
-        format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,10 +40,8 @@ class AnimalsController < ApplicationController
     respond_to do |format|
       if @animal.update(animal_params)
         format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @animal }
       else
         format.html { render :edit }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -60,7 +51,6 @@ class AnimalsController < ApplicationController
     @animal.destroy
     respond_to do |format|
       format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
